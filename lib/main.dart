@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: Scaffold(
         body: Center(
-          child: CrosswordTest(
+          child: Crossword(
             letters: [
               "BCMOM".split(''),
               "QAIIS".split(''),
@@ -35,13 +35,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class CrosswordTest extends StatefulWidget {
+class Crossword extends StatefulWidget {
   final List<List<String>> letters;
   final double cellSide;
   final Function(List<String> words) onLineDrawn;
   final List<String> words;
 
-  const CrosswordTest({
+  const Crossword({
     super.key,
     required this.letters,
     required this.cellSide,
@@ -50,10 +50,10 @@ class CrosswordTest extends StatefulWidget {
   });
 
   @override
-  CrosswordTestState createState() => CrosswordTestState();
+  CrosswordState createState() => CrosswordState();
 }
 
-class CrosswordTestState extends State<CrosswordTest> {
+class CrosswordState extends State<Crossword> {
   final markedCells = <(int, int)>[];
   // a map to represent words and their corresponding answer path. null means the words anre not answered (traced) yet
   late final Map<String, ((int n, int m), (int n, int m))?> wordToPath;
@@ -103,7 +103,7 @@ class CrosswordTestState extends State<CrosswordTest> {
       child: Stack(
         children: [
           CustomPaint(
-            foregroundPainter: CrosswordTestPainter(
+            foregroundPainter: CrosswordPainter(
               cellSide: widget.cellSide,
               selectedLine: markedCells.length >= 2 ? (markedCells.first, markedCells.last) : null,
               answeredLines: [for(var val in wordToPath.values) val].nonNulls.toList(),
@@ -209,12 +209,12 @@ class CrosswordTestState extends State<CrosswordTest> {
   }
 }
 
-class CrosswordTestPainter extends CustomPainter {
+class CrosswordPainter extends CustomPainter {
   double cellSide;
   ((int n, int m), (int n, int m))? selectedLine;
   List<((int n, int m), (int n, int m))> answeredLines;
 
-  CrosswordTestPainter(
+  CrosswordPainter(
       {this.selectedLine, required this.cellSide, required this.answeredLines});
 
   /// paints the line spanning across the letters the user is currenly selecting (when the user is actively tracing)
