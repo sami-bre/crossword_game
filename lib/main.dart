@@ -23,11 +23,11 @@ class MyApp extends StatelessWidget {
               "ZWKLU".split(''),
               "NLUJX".split(''),
             ],
-            cellSide: 34,
+            cellSide: 60,
             onLineDrawn: (List<String> words) {
               return false;
             },
-            words: const ["BALL", "MILK", "OWL", "MOM"],
+            words: const ["BALL", "MILK", "OWL", "MOM", "COLOR"],
           ),
         ),
       ),
