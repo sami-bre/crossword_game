@@ -20,16 +20,11 @@ jobs:
         flutter-version: '3.24.0'
         channel: 'stable'
         
-    - name: Setup FVM
-      uses: LeoFarias/fvm@v2
-      with:
-        version: '3.24.0'
-        
     - name: Install dependencies
-      run: fvm flutter pub get
+      run: flutter pub get
       
     - name: Build web app
-      run: fvm flutter build web --release --base-href "/crossword_game/"
+      run: flutter build web --release --base-href "/crossword_game/"
       
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
