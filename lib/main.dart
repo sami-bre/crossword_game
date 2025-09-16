@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gesture_lab/crossword.dart';
+import 'package:crossword_game/crossword.dart';
 
 void main() {
   runApp(const MyApp());
