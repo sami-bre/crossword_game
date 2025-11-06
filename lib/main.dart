@@ -1,5 +1,5 @@
+import 'package:crossword_game_widget/crossword_game_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:crossword_game/crossword.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,17 +17,17 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Crossword(
             letters: [
-              "BCMOM".split(''),
-              "QAIIS".split(''),
-              "COLOR".split(''),
-              "ZWKLU".split(''),
-              "NLUJX".split(''),
+              'BCMOM'.split(''),
+              'QAIIS'.split(''),
+              'COLOR'.split(''),
+              'ZWKLU'.split(''),
+              'NLUJX'.split(''),
             ],
             cellSide: 60,
-            onLineDrawn: (List<String> words) {
-              return false;
+            onLineDrawn: (foundWords) {
+              debugPrint('Found words: $foundWords');
             },
-            words: const ["BALL", "MILK", "OWL", "MOM", "COLOR"],
+            words: const ['BALL', 'MILK', 'OWL', 'MOM', 'COLOR'],
           ),
         ),
       ),

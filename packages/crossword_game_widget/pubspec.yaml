@@ -1,0 +1,18 @@
+name: crossword_game_widget
+description: "Reusable crossword puzzle UI widget for Flutter applications."
+version: 0.1.0
+homepage: https://example.com/crossword_game_widget
+repository: https://example.com/crossword_game_widget
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^3.0.2
+
+flutter:
